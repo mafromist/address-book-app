@@ -5,40 +5,72 @@ import './App.css';
 class App extends Component {
 
   state = {
-    name: [],
-    phoneNumer: []
-
+    addName: "",
+    addPhoneNumber: "",
+    savedNames: [],
+    savedPhoneNumbers: []
   }
 
-  addName = (event) => {
-    let newName = event.target.value
+  addNameHandler = (event) => {
     this.setState({
-      name: newName
+      addName: event.target.value
     })
   }
   
-  addPhoneNumber = (event) => {
-    let newNumber = event.target.value
+  phoneNumberHandler = (event) => {
     this.setState({
-      phoneNumber: newNumber
+      addPhoneNumber: event.target.value
+    })
+  }
+
+  saveContactHandler = (name, phoneNumber) => {
+    this.setState ({
+      savedNames: [...this.state.savedNames, this.state.addName],
+      addName: "",
+      savedPhoneNumbers: [...this.state.savedPhoneNumbers, this.state.addPhoneNumber],
+      addPhoneNumber: ""
     })
   }
 
   render () { 
-  return (
-    <div className="App">
-      <div>
-        <input class="nameInput"></input>
-        <input class="phoneInput"></input>
+
+    let eachName = this.state.savedNames.map((name, index) =>{
+      return <li key = {index} className="savedNames" > {name} </li>
+    })
+    
+    let eachPhoneNumber = this.state.savedPhoneNumbers.map((phoneNumber, index) =>{
+      return <li key = {index} className="savedPhoneNumbers" > {phoneNumber} </li>
+    })
+
+    return (
+      <div className="App">
+        <div className="appInfo">
+          <h1>Digital Address Book</h1>
+          <p>Save your important contacts into your digital address book, no need to memorise the numbers</p>
+        <div className="inputArea">
+          <div className="contactInputArea">
+            <input className="nameInput input" type="text" onChange={this.addNameHandler} placeHolder="Enter New Name"
+            value={this.state.addName}></input>
+            <input className="phoneInput input" type="tel" onChange={this.phoneNumberHandler} placeHolder="Enter New Phone Number"
+            value={this.state.addPhoneNumber}></input>
+          </div>
+          <div>
+            <button className="saveBtn" onClick={this.saveContactHandler}>Save Contact</button>
+          </div>
+        </div>
+        </div>
+        <div className="savedListArea">
+          <div className="savedNameArea">
+            <h2 className="nameTitle">Saved Name</h2>
+            <ul className="savedName">{eachName}</ul>
+          </div>
+          <div className="savedPhoneNumberArea">
+            <h2 className="phoneTitle">Saved Numbers</h2>
+            <ul className="savedNumber">{eachPhoneNumber}</ul>
+          </div>
+        </div>
       </div>
-      <div>
-        <ul>
-          <li class="savedName"></li>
-          <li class="savedPhone"></li>
-        </ul>
-      </div>
-    </div>
-  )}
+    )}
 } 
 
 export default App;

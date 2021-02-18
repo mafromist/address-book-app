@@ -1,1 +1,103 @@
+body {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.appInfo {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 60vw;
+  height: 30vh;
+  margin: 2% auto 4% auto;
+  border-radius: 20px;
+  border-right: 3px solid rgb(169, 69, 16);
+  border-left: 3px solid rgb(169, 69, 16);
+}
+
+.appInfo h1 {
+  text-transform: lowercase;
+  color: tomato;
+  font-size: 1.1rem;
+}
+
+.appInfo p {
+  text-transform: lowercase;
+  color: tomato;
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
+
+.inputArea , .savedListArea {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.contactInputArea {
+  height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.input {
+  height: 33px;
+  width: 200px;
+  color:rgb(169, 69, 16);
+  border: none;
+  border-bottom: 2px solid tomato;
+  border-radius: 5px;
+}
+
+.input::placeholder {
+  color:tomato;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgb(218, 123, 106);
+}
+
+.saveBtn {
+  background-color: transparent;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px tomato;
+  border: none;
+  border-bottom: 2px solid tomato;
+}
+
+.savedListArea {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60vw;
+  color: tomato;
+  border-right: 3px solid rgb(169, 69, 16);
+  border-left: 3px solid rgb(169, 69, 16);
+  border-radius: 20px;
+}
+
+.savedListArea h2 {
+  text-decoration: underline;
+}
+
+.savedName {
+  color:tomato;
+  font-weight: 800;
+  text-shadow: 1px 1px 1px rgb(218, 123, 106);
+  list-style: none;
+}
+
+.savedNumber {
+  color:tomato;
+  text-shadow: 1px 1px 1px rgb(218, 123, 106);
+  list-style: none;
+}
 
